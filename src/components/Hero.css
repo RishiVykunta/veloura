@@ -80,23 +80,39 @@
     padding: 60px 20px;
     height: auto;
     text-align: center;
+    min-height: 90vh;
   }
 
   .hero-content {
-    margin-top: 40px;
+    margin-top: 30px;
   }
 
   .hero-content h1 {
-    font-size: 50px;
+    font-size: 42px;
+    margin-bottom: 15px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    padding: 0 10px;
   }
 
   .hero-btns {
     justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero-btns .btn-primary, .hero-btns .btn-gold {
+    width: 100%;
+    padding: 15px;
   }
 
   .hero-image img {
     width: 100%;
-    height: 60vh;
+    height: 45vh;
+    border-radius: 15px;
   }
 
   .image-accent {

@@ -167,15 +167,60 @@ input, select, textarea {
   .admin-container {
     flex-direction: column;
   }
+
   .admin-sidebar {
     width: 100%;
-    padding: 10px 0;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
+
+  .sidebar-header {
+    display: none;
+  }
+
   .sidebar-nav {
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
   }
+
+  .sidebar-nav button {
+    padding: 10px;
+    font-size: 14px;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+  }
+
+  .sidebar-nav button.active {
+    border-left: none;
+    border-bottom: 3px solid var(--accent-gold);
+    background: transparent;
+  }
+
   .admin-main {
-    padding: 20px;
+    padding: 20px 15px;
+  }
+
+  .section-header h3 {
+    font-size: 18px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .product-table-container {
+    overflow-x: auto;
+  }
+
+  .admin-table th, .admin-table td {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+
+  .table-img {
+    width: 40px;
+    height: 40px;
   }
 }

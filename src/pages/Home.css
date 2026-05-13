@@ -85,7 +85,30 @@
 }
 
 @media (max-width: 768px) {
+  .section-title {
+    margin-bottom: 30px;
+  }
+
+  .section-title h2 {
+    font-size: 28px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
   .banner-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .banner {
+    height: 300px;
+    padding: 30px;
+  }
+
+  .banner-content h3 {
+    font-size: 24px;
   }
 }
