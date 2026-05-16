@@ -41,6 +41,13 @@ const WhatsAppIcon = ({ size = 20, className = "" }) => (
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [currentAnnouncement, setCurrentAnnouncement] = useState(0);
+
+  const announcements = [
+    "🌸 DESIGNED TO MAKE YOU SHINE",
+    "🚚 FREE SHIPPING ABOVE ₹2999",
+    "✨ HANDCRAFTED FOR EVERY WOMAN"
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,14 +57,26 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentAnnouncement((prev) => (prev + 1) % announcements.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [announcements.length]);
+
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       {/* Top Announcement Bar */}
       <div className="announcement-bar">
-        <div className="announcement-content">
-          <span>🌸 DESIGNED TO MAKE YOU SHINE</span>
-          <span>🚚 FREE SHIPPING ABOVE ₹2999</span>
-          <span>✨ HANDCRAFTED FOR EVERY WOMAN</span>
+        <div 
+          className="announcement-slider" 
+          style={{ transform: `translateX(-${currentAnnouncement * 100}%)` }}
+        >
+          {announcements.map((text, index) => (
+            <div key={index} className="announcement-item">
+              {text}
+            </div>
+          ))}
         </div>
       </div>
 
