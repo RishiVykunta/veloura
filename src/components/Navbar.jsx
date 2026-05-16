@@ -1,7 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, User, Menu, X, Search, Instagram, MessageCircle } from 'lucide-react';
+import { ShoppingBag, User, Menu, X, Search } from 'lucide-react';
 import './Navbar.css';
+
+// Custom Brand Icons
+const InstagramIcon = ({ size = 20, className = "" }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+  </svg>
+);
+
+const WhatsAppIcon = ({ size = 20, className = "" }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.4 8.38 8.38 0 0 1 3.8.9L21 4.2l-1.7 4.7a8.38 8.38 0 0 1 .9 3.8z"/>
+  </svg>
+);
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,10 +66,10 @@ const Navbar = () => {
           {/* Left: Social Icons */}
           <div className="nav-left social-icons hide-mobile">
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <Instagram size={20} className="icon" />
+              <InstagramIcon size={20} className="icon" />
             </a>
             <a href="https://wa.me/yournumber" target="_blank" rel="noopener noreferrer">
-              <MessageCircle size={20} className="icon" />
+              <WhatsAppIcon size={20} className="icon" />
             </a>
           </div>
 
@@ -89,8 +124,8 @@ const Navbar = () => {
             <li><Link to="/tag-on-us" onClick={() => setIsOpen(false)}>TAG ON US</Link></li>
             <li><Link to="/about-us" onClick={() => setIsOpen(false)}>ABOUT US</Link></li>
             <li className="mobile-socials">
-              <Instagram size={24} />
-              <MessageCircle size={24} />
+              <InstagramIcon size={24} />
+              <WhatsAppIcon size={24} />
             </li>
           </ul>
         </div>
@@ -100,4 +135,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
